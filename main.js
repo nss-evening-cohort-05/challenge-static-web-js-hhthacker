@@ -5,9 +5,10 @@
 // print characters:
 // (2 * 1) + 1 
 
-var treeHeight;
-var treeCharacter;
-var i = {treeHeight: treeHeight.value, character: treeCharacter.value};
+var button = document.getElementById("grow");
+var treeHeight = document.getElementById("treeHeight");
+var treeCharacter = document.getElementById("treeCharacter");
+var i = {treeHeight, treeCharacter};
 
 // Once the user enters in a number, 
 // and a character, the user can either then just press the enter key 
@@ -18,10 +19,25 @@ var i = {treeHeight: treeHeight.value, character: treeCharacter.value};
 // as well as an event listener for the enter/return key.
 
 
-function tree(i) {
-	for (i[treeHeight] )
+function growTree(i) {
+	for (var i = 0; i < treeCharacter; i ++) {
+		return (treeHeight - (i +1)) + (treeCharacter (2 * 1) + 1);
+	}
+	console.log(growTree); 
 }
 
 
-button.addEventListener("click", tree);
+
+function button() {
+console.log(treeHeight, treeCharacter);
+}
+
+function enterKeyPress(keypress) {
+	if (keypress.which === 13) {
+		growTree();
+	}
+}
+
+button.addEventListener("click", growTree);
+
 console.log(tree);
