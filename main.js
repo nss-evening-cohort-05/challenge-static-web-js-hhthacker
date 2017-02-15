@@ -6,31 +6,37 @@
 // (2 * i) + 1 
 
 var button = document.getElementById("grow");
-var treeHeight = document.getElementById("treeHeight");
-var treeCharacter = document.getElementById("treeCharacter");
-var myTree = {treeHeight, treeCharacter};
 
-function printSpaces(myTree) {
-	var height = treeHeight.value;
-	return treeHeight - (treeHeight + 1);
+function printSpaces(treeHeight, i) {
+	return " ".repeat(treeHeight - (i + 1));
 }
 
-function printCharacters(myTree) {
-	var character = treeCharacter.value;
-	return (2 * treeHeight) + 1;
+function printCharacters(myTree, i) {
+	return myTree.treeCharacter.repeat((2 * i) + 1);
 }
 
-function growTree(clickEvent) {
-		return printSpaces(); printCharacters();
+function growTree(myTree) {
+		for (var i = 0; i < myTree.treeHeight; i++) {
+			console.log(printSpaces(myTree.treeHeight, i) + printCharacters(myTree, i))
+		}
 	}
 
+function validateTree() {
+	var treeHeightInput = document.getElementById("treeHeight");
+	var treeCharacterInput = document.getElementById("treeCharacter");
+	var myTree = {treeHeight: treeHeightInput.value, treeCharacter: treeCharacterInput.value};
+	growTree(myTree);
+	if (treeHeightInput.value === "" || treeCharacterInput.value === "") {
+		alert("Values are invalid!");
+	}
+
+}
 
 function enterKeyPress(keypress) {
 	if (keypress.which === 13) {
-		growTree();
+		validateTree();
 	}
 }
 
-console.log(growTree);
-button.addEventListener("click", growTree);
+button.addEventListener("click", validateTree);
 document.addEventListener("keypress", enterKeyPress);
