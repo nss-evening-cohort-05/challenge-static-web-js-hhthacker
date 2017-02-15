@@ -1,10 +1,3 @@
-
-// print spaces: 
-// treeHeight - (i +1)
-
-// print characters:
-// (2 * i) + 1 
-
 var button = document.getElementById("grow");
 
 function printSpaces(treeHeight, i) {
@@ -16,27 +9,26 @@ function printCharacters(myTree, i) {
 }
 
 function growTree(myTree) {
-		for (var i = 0; i < myTree.treeHeight; i++) {
-			console.log(printSpaces(myTree.treeHeight, i) + printCharacters(myTree, i))
-		}
+	for (var i = 0; i < myTree.treeHeight; i++) {
+	console.log(printSpaces(myTree.treeHeight, i) + printCharacters(myTree, i));
 	}
+}
 
-function validateTree() {
+function tree() {
 	var treeHeightInput = document.getElementById("treeHeight");
 	var treeCharacterInput = document.getElementById("treeCharacter");
-	var myTree = {treeHeight: treeHeightInput.value, treeCharacter: treeCharacterInput.value};
+	var myTree = {treeHeight : treeHeightInput.value, treeCharacter : treeCharacterInput.value};
 	growTree(myTree);
 	if (treeHeightInput.value === "" || treeCharacterInput.value === "") {
-		alert("Values are invalid!");
+		alert("Both fields must have a value!");
 	}
-
 }
 
 function enterKeyPress(keypress) {
 	if (keypress.which === 13) {
-		validateTree();
+		tree();
 	}
 }
 
-button.addEventListener("click", validateTree);
+button.addEventListener("click", tree);
 document.addEventListener("keypress", enterKeyPress);
